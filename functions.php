@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-use Flasher\Noty\Prime\NotyInterface;
+namespace Flasher\Noty\Prime;
+
 use Flasher\Prime\Container\FlasherContainer;
 use Flasher\Prime\Notification\Envelope;
 use Flasher\Prime\Notification\Type;
 
-if (!function_exists('noty')) {
+if (!\function_exists('Flasher\Noty\Prime\noty')) {
     /**
      * Creates a Noty notification or returns the Noty factory.
      *
@@ -32,7 +33,7 @@ if (!function_exists('noty')) {
     {
         $factory = FlasherContainer::create('flasher.noty');
 
-        if (0 === func_num_args()) {
+        if (0 === \func_num_args()) {
             return $factory;
         }
 
